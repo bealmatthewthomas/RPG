@@ -12,7 +12,7 @@ public class Turn{
       //THIS IS WHERE ERROR IS OCCURING 
       for(int i=0; i<monsters.size()-1;i++){
          //battleOrder.add((monsters.get(i)));
-         monsters.get(i);
+         battleOrder.add(monsters.get(i));
       }
       battleOrder.add(player);
    }
