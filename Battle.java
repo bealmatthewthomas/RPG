@@ -22,6 +22,7 @@ public class Battle{
       }
       return player;
    }
+   //gotta fix this
    public double getMonsterHealth(ArrayList<Monster> monsterList){
       double healthTotal=0;
       for(int i=0; i<monsterList.size();i++){

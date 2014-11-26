@@ -1,6 +1,8 @@
 import java.util.*;
 public class MainTester{
    public static void main(String[] args){
+      //ask for name class and number of battles. use name and class to make player object
+      //use number of battles and inject into the game
       int battleNumber;
       String playerName;
       String playerClass="lol";

@@ -9,6 +9,7 @@ public class Turn{
    public Turn(PlayerCharacter p, ArrayList<Monster> monsters){
       player=p;
       monsterList=monsters;
+      //THIS IS WHERE ERROR IS OCCURING
       for(int i=0; i<monsterList.size()-1;i++){
          battleOrder.add((monsterList.get(i)));
       }

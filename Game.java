@@ -5,6 +5,7 @@ public class Game{
    private static int DEFAULTNUM=3;
    private PlayerCharacter player;
    private ArrayList<Integer> battleCount = new ArrayList<Integer>();
+   //takes in the player and number of battles
    public Game(int battles, PlayerCharacter player){
       this.battles=battles;
       this.player=player;
@@ -13,13 +14,16 @@ public class Game{
    public Game(){
       battles=DEFAULTNUM;
    }
+   //make an array of integers counting the battles this is not necessary now thati tthink about it
    public void makeBattles(){
       for(int i=0; i<battles; i++){      
          battleCount.add(i);
       }
    }
    public void startGame(){
+      //for each battle
       for(int i=0; i<battleCount.size();i++){
+         //tell player which battle it is and then input the number of monsters and the player object
          System.out.println("Welcome to battle "+(i+1));
          Battle newBattle= new Battle(3,player);
          newBattle.playBattle();
