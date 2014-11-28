@@ -5,6 +5,7 @@ public class Character{
    private double STR;
    private double AGI;
    private double DEF;
+   private String name="default";
    private Random randomGenerator = new Random();
    //make a character with the inputted user values
    public Character(double Health, double Strength, double Agility, double Defense){
@@ -21,15 +22,17 @@ public class Character{
       DEF = randomGenerator.nextInt(3)+1;
    }
    //setters and getters
+   public void setName(String s){name=s;}
    public void setHP(double H){if(H<0){HP=0;}else{HP=H;}}
    public void setSTR(double S){STR=S;}
    public void setAGI(double A){AGI=A;}
    public void setDEF(double D){DEF=D;}
+   public String getName(){return name;}
    public double getHP(){return HP;}
    public double getSTR(){return STR;}
    public double getAGI(){return AGI;}
    public double getDEF(){return DEF;}
    public String toString(){
-      return(HP+" Health, "+STR+" Strength, "+AGI+" Agility, and "+DEF+"Defense.");
+      return(name+" has "+HP+" Health, "+STR+" Strength, "+AGI+" Agility, and "+DEF+"Defense.");
    }
 }

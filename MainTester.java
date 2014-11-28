@@ -5,7 +5,7 @@ public class MainTester{
       //use number of battles and inject into the game
       int battleNumber;
       String playerName;
-      String playerClass="lol";
+      String playerClass;
       Scanner keyboard= new Scanner(System.in);
       System.out.println("Welcome to Matt's RPG! What is your characters name?");
       playerName= keyboard.nextLine();

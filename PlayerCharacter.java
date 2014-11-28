@@ -1,8 +1,8 @@
 public class PlayerCharacter extends Character{
-   private String playerName;
+   //private String playerName;
    private String playerClass;
    public PlayerCharacter(String playName, String playerClass){
-      playerName=playName;
+      setName(playName);
       if(playerClass.equals("warrior")){
          setWarrior();
       }else if(playerClass.equals("tank")){
@@ -11,9 +11,9 @@ public class PlayerCharacter extends Character{
          setRogue();
       }
    }
-   public void setName(String playName){
-      playerName=playName;
-   }
+   //public void setName(String playName){
+   //   setName(playName);
+   //}
    public void setWarrior(){
       setHP(20);
       setSTR(5);

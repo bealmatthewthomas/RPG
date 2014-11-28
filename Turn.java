@@ -27,10 +27,10 @@ public class Turn{
             Thread.currentThread().interrupt();
          }
       //display the player health and monster health
-      System.out.println("Player has "+player.toString());
+      System.out.println(player.toString());
       for(int i=0; i<monsterList.size();i++){
          if(monsterList.get(i).getHP()>0){
-            System.out.println("Monster "+(i+1)+" has " +(monsterList.get(i).toString()));
+            System.out.println("Monster "+(i+1)+": " +(monsterList.get(i).toString()));
          }else{System.out.println("Monster "+(i+1)+" is dead.");
       }
       }
@@ -38,7 +38,7 @@ public class Turn{
       System.out.println("which monster do you want to attack?(enter the number)");
       input=keyboard.nextInt()-1;
       (monsterList.get(input)).setHP(battleCalculator(player,monsterList.get(input)));
-      System.out.println("Monsters turn to attack");
+      System.out.println("\nMonsters turn to attack\n");
       for(int i=0; i<monsterList.size();i++){
          try {
             Thread.sleep(1000);                 //1000 milliseconds is one second.
@@ -47,9 +47,9 @@ public class Turn{
          }
          if(player.getHP()<=0){break;}
          if((monsterList.get(i)).getHP()>0){
-            System.out.println("Monster "+ (i+1)+" attacks.");
+            System.out.println("\nMonster "+ (i+1)+" attacks.");
             player.setHP(battleCalculator(monsterList.get(i),player));
-         }else{System.out.println("Monster "+(i+1)+" is dead.");
+         }else{System.out.println("\nMonster "+(i+1)+" is dead.");
       }
       }
    /*
@@ -87,7 +87,7 @@ public class Turn{
       double number = generator.nextDouble();
       double dodgeChance=(defender.getAGI())*.05;
       if(dodgeChance>number){
-         System.out.println("Character Dodges!");
+         System.out.println(defender.getName()+" Dodges!");
          return defender.getHP();
       }
       //calculate crit chance and apply multiplier if necessary
@@ -102,9 +102,9 @@ public class Turn{
       damage=((attacker.getSTR()*damageMult)*(1-(defender.getDEF()*.05)));
       //make the changes to the HP value of the attacked
       //
-      System.out.println("Attack deals "+damage+"damage to defender.");
+      System.out.println(attacker.getName()+" deals "+damage+" damage to "+defender.getName()+".");
        if(damage>defender.getHP()){
-         System.out.println("Character is dead");
+         System.out.println(defender.getName()+" is dead");
       }
       return defender.getHP()-damage;
    }
