@@ -19,6 +19,7 @@ public class Battle{
       //while monster all monster health is positive and character health is positive
       while(player.getHP()>0 && getMonsterHealth(monsterList)>0){
          Turn newTurn= new Turn(player,monsterList);
+         newTurn.playTurn();
       }
       return player;
    }

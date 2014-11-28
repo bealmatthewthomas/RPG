@@ -30,6 +30,6 @@ public class Character{
    public double getAGI(){return AGI;}
    public double getDEF(){return DEF;}
    public String toString(){
-      return("Character has "+HP+" Health, "+STR+" Strength, "+AGI+" Agility, and "+DEF);
+      return(HP+" Health, "+STR+" Strength, "+AGI+" Agility, and "+DEF+"Defense.");
    }
 }

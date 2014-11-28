@@ -10,13 +10,25 @@ public class Turn{
       player=p;
       //monsterList=monsters;
       //THIS IS WHERE ERROR IS OCCURING 
-      for(int i=0; i<monsters.size()-1;i++){
+      //for(int i=0; i<monsters.size()-1;i++){
          //battleOrder.add((monsters.get(i)));
-         battleOrder.add(monsters.get(i));
-      }
-      battleOrder.add(player);
+       //  battleOrder.add(monsters.get(i));
+       monsterList=monsters;
+      //}
+      //battleOrder.add(player);
    }
    public void playTurn(){
+      //player attacks first
+      int input;
+      for(int i=0; i<monsterList.size();i++){
+         System.out.println("Monster "+(i+1)+" has " +(monsterList.get(i).toString()));
+         
+      }
+      System.out.println("which monster do you want to attack?(enter the number)");
+      input=keyboard.nextInt()-1;
+      (monsterList.get(input)).setHP(battleCalculator(player,monsterList.get(input)));
+      
+   /*
       getPriority();
       for(int i=0;i<battleOrder.size();i++){
          if(battleOrder.get(i)==player){
@@ -32,7 +44,7 @@ public class Turn{
          }else{
             //monster x attack player
          }
-      }
+      }*/
    }
    public void getPriority(){
       //Make the monster list= to the char list sort the monster list 
@@ -44,11 +56,17 @@ public class Turn{
             battleOrder.add(i,place);
       }
    }
-   public void BattleCalcualtor(){
-      //calculate dodge chance, then test dodge if dodge break
+   public double battleCalculator(Character attacker, Character defender ){
+      //calculate dodge chance, then test dodge if dodge break dodge will be half of AGI
+      Random r=new Random();
+      double zeroToOne = r.nextInt(1001) / 1000;
+      System.out.println(zeroToOne);
+      //double dodgeChance=AGI;
+      
       //calculate crit chance and apply multiplier if necessary
       //calculate damage mitigation of agressor on defender
       //make the changes to the HP value of the attacked
       //
+      return 5;
    }
 }
