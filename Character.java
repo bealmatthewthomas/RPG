@@ -15,13 +15,13 @@ public class Character{
    }
    //generate a random character
    public Character(){
-      HP = randomGenerator.nextInt(4)+5;
+      HP = randomGenerator.nextInt(2)+2;
       STR = randomGenerator.nextInt(2)+1;
-      AGI = randomGenerator.nextInt(10);
-      DEF = randomGenerator.nextInt(3);
+      AGI = randomGenerator.nextInt(9)+1;
+      DEF = randomGenerator.nextInt(3)+1;
    }
    //setters and getters
-   public void setHP(double H){HP=H;}
+   public void setHP(double H){if(H<0){HP=0;}else{HP=H;}}
    public void setSTR(double S){STR=S;}
    public void setAGI(double A){AGI=A;}
    public void setDEF(double D){DEF=D;}

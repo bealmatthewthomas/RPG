@@ -3,6 +3,13 @@ public class PlayerCharacter extends Character{
    private String playerClass;
    public PlayerCharacter(String playName, String playerClass){
       playerName=playName;
+      if(playerClass.equals("warrior")){
+         setWarrior();
+      }else if(playerClass.equals("tank")){
+         setTank();
+      }else if(playerClass.equals("rogue")){
+         setRogue();
+      }
    }
    public void setName(String playName){
       playerName=playName;

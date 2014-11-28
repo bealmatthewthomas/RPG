@@ -24,10 +24,18 @@ public class Game{
       //for each battle
       for(int i=0; i<battleCount.size();i++){
          //tell player which battle it is and then input the number of monsters and the player object
+         if(player.getHP()<=0){
+            break;
+         }
          System.out.println("Welcome to battle "+(i+1));
          Battle newBattle= new Battle(3,player);
          newBattle.playBattle();
          //make sure to return and update playerHealth before ending this loop also maybe change the number of monsters
+      }
+      if(player.getHP()<=0){
+         System.out.println("You lose!");
+      }else if(player.getHP()>0){
+         System.out.println("You win!");
       }
    }
 }
