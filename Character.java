@@ -5,7 +5,7 @@ public class Character{
    private double STR;
    private double AGI;
    private double DEF;
-   private String name="default";
+   private String name="Spooky Monster";
    private Random randomGenerator = new Random();
    //make a character with the inputted user values
    public Character(double Health, double Strength, double Agility, double Defense){
@@ -33,6 +33,6 @@ public class Character{
    public double getAGI(){return AGI;}
    public double getDEF(){return DEF;}
    public String toString(){
-      return(name+" has "+HP+" Health, "+STR+" Strength, "+AGI+" Agility, and "+DEF+"Defense.");
+      return(name+" has "+HP+" Health, "+STR+" Strength, "+AGI+" Agility, and "+DEF+" Defense.");
    }
 }

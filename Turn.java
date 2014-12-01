@@ -1,4 +1,4 @@
-import java.util.*;
+ import java.util.*;
 public class Turn{
    //generate player, scanner, arraylists
    private PlayerCharacter player;
@@ -35,23 +35,31 @@ public class Turn{
       }
       }
       //
-      System.out.println("which monster do you want to attack?(enter the number)");
-      input=keyboard.nextInt()-1;
-      (monsterList.get(input)).setHP(battleCalculator(player,monsterList.get(input)));
-      System.out.println("\nMonsters turn to attack\n");
-      for(int i=0; i<monsterList.size();i++){
-         try {
-            Thread.sleep(1000);                 //1000 milliseconds is one second.
-         } catch(InterruptedException ex) {
-            Thread.currentThread().interrupt();
+      try{
+         System.out.println("which monster do you want to attack?(enter the number)");
+         input=keyboard.nextInt()-1;
+         (monsterList.get(input)).setHP(battleCalculator(player,monsterList.get(input)));
+         System.out.println("\nMonsters turn to attack\n");
+         for(int i=0; i<monsterList.size();i++){
+            try {
+               Thread.sleep(1000);                 //1000 milliseconds is one second.
+            } catch(InterruptedException ex) {
+               Thread.currentThread().interrupt();
+            }
+            if(player.getHP()<=0){break;}
+            if((monsterList.get(i)).getHP()>0){
+               System.out.println("\nMonster "+ (i+1)+" attacks.");
+               player.setHP(battleCalculator(monsterList.get(i),player));
+            }else{System.out.println("\nMonster "+(i+1)+" is dead.");
          }
-         if(player.getHP()<=0){break;}
-         if((monsterList.get(i)).getHP()>0){
-            System.out.println("\nMonster "+ (i+1)+" attacks.");
-            player.setHP(battleCalculator(monsterList.get(i),player));
-         }else{System.out.println("\nMonster "+(i+1)+" is dead.");
+         }
+      }catch(InputMismatchException e){
+         System.out.println("Invalid input, choose a valid monster");
+         keyboard.next();
+      }catch(IndexOutOfBoundsException e){
+         System.out.println("Not a valid monster, pick from the monsters!");
       }
-      }
+   }
    /*
       getPriority();
       for(int i=0;i<battleOrder.size();i++){
@@ -69,7 +77,6 @@ public class Turn{
             //monster x attack player
          }
       }*/
-   }
    /*public void getPriority(){
       //Make the monster list= to the char list sort the monster list 
       
@@ -102,9 +109,13 @@ public class Turn{
       damage=((attacker.getSTR()*damageMult)*(1-(defender.getDEF()*.05)));
       //make the changes to the HP value of the attacked
       //
+      if(defender.getHP()>0){
       System.out.println(attacker.getName()+" deals "+damage+" damage to "+defender.getName()+".");
        if(damage>defender.getHP()){
          System.out.println(defender.getName()+" is dead");
+      }
+      }else{
+         System.out.println(player.getName()+" attacks a corpse!");
       }
       return defender.getHP()-damage;
    }
